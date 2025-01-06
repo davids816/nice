@@ -77,6 +77,32 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         
+        const productList = document.querySelector('#product-list')
+        let productHtml = ''
+        fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          data.products.forEach(product =>{
+            console.log(product.name)
+            productHtml += 
+            `
+            <div class="col-md-4">
+          <div class="card mb-4">
+              <img src=${product.image} class="card-img-top" alt="Product 1">
+              <div class="card-body">
+                  <h5 class="card-title">${product.name}</h5>
+                  <p class="card-text">$10.99</p>
+                  <p class="card-text">Description for product 1</p>
+                  <button class="btn btn-primary add-to-cart" data-id="1">Add to Cart</button>
+              </div>
+          </div>
+      </div>
+            `
+          })
+           productList.innerHTML = productHtml 
+
+        })
         });
     </script>
   </body>
