@@ -78,6 +78,7 @@
       document.addEventListener("DOMContentLoaded", function () {
         
         const productList = document.querySelector('#product-list')
+        let productData = []
         let productHtml = ''
         fetch('products.json')
         .then(response => response.json())
@@ -92,7 +93,7 @@
               <img src=${product.image} class="card-img-top" alt="Product 1">
               <div class="card-body">
                   <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text">$10.99</p>
+                  <p class="card-text">${product.price}</p>
                   <p class="card-text">Description for product 1</p>
                   <button class="btn btn-primary add-to-cart" data-id="1">Add to Cart</button>
               </div>
@@ -103,7 +104,33 @@
            productList.innerHTML = productHtml 
 
         })
+        const cart = []
+    function addToCart(event){
+      console.log(event.target.getAttribute('data-id'));
+      const productId = event.target.getAttribute('data-id');
+      const product = productData[productId - 1]; //use the global variable to find the product
+let cartItem ={
+  name: product.name,
+};
+cart.push(cartItem);
+console.log(cart);
+renderCart();
+
+    }
+
+    function renderCart(){
+      const cartList = document.getElementById('cart-list');
+      let cartItem = '';
+      cart.forEach((product) => {
+        cartItem += `<p>${product.name}</p>`;
+      });
+      cartList.innerHTML = cartItem;
+    }
         });
+
+
+    
+
     </script>
   </body>
 </html>
