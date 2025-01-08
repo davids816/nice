@@ -3,63 +3,63 @@
     {
       "id": 1,
       "name": "Product 1",
-      "description": "Description for product 1",
+      "description": "Lamborghini Revuelto ",
       "price": 10.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt9edcdbba3911449f/42115_Prod.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     },
     {
       "id": 2,
       "name": "Product 2",
-      "description": "Description for product 2",
+      "description": "Proche 911 gt3 Rs",
       "price": 12.99,
       "image": "https://lacretehomehardware.ca/media/catalog/product/cache/81f6443aaa4a709a5be122d745329798/p/1/p1_7.jpg"
     },
     {
       "id": 3,
       "name": "Product 3",
-      "description": "Description for product 3",
+      "description": "Ferrari spider 81 gt3 ",
       "price": 15.99,
       "image": "https://lacretehomehardware.ca/media/catalog/product/cache/81f6443aaa4a709a5be122d745329798/7/1/71_z3axeucl._ac_sl1500_.jpg"
     }, 
     {
       "id": 4,
       "name": "Product 4",
-      "description": "Description for product 3",
+      "description": "Mclaren P1",
       "price": 18.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt519dac201a3dd4c1/42172.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     },
     {
       "id": 5,
       "name": "Product 5",
-      "description": "Description for product 1",
+      "description": "Mercedes-AMG F1 W14 E Performance",
       "price": 35.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt2d0b04908f20c4fb/42171.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     },
     {
       "id": 6,
       "name": "Product 6",
-      "description": "Description for product 2",
+      "description": "Ferrari SF-24 F1 Car",
       "price": 21.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt1dd4e21e38b03edd/42207_Prod_en-gb.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     },
     {
       "id": 7,
       "name": "Product 7",
-      "description": "Description for product 3",
+      "description": "Millennium Falcon™",
       "price": 69.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt3349f56c6f192e18/75192_Prod.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     }, 
     {
       "id": 8,
       "name": "Product 8",
-      "description": "Description for product 3",
+      "description": "Lamborghini Countach 5000 Quattrovalvole",
       "price": 87.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt9b3c20d77c24bafe/10337.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     },
     {
       "id": 9,
       "name": "Product 9",
-      "description": "Description for product 3",
+      "description": "Ford gt 2022",
       "price": 99.99,
       "image": "https://www.lego.com/cdn/cs/set/assets/blt5014244d8d8dc8ad/42154.png?format=webply&fit=bounds&quality=60&width=800&height=800&dpr=2"
     }
