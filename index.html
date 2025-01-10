@@ -41,6 +41,7 @@
     </nav>
 
     <div class="container mt-5">
+      <form action="checkout.html" method="get">
       <h2>Cart</h2>
       <div id="cart-list">
         <div class="cart-item">
@@ -58,6 +59,7 @@
         </div>
       </div>
       <button class="btn btn-primary" id="checkout-button">Checkout</button>
+    </form>
     </div>
 
     <div class="container mt-5">
@@ -83,7 +85,7 @@
         </div>
       </div>
     </div>
-
+ 
     <footer class="bg-light text-center py-3">
       <p>&copy; 2025 E-commerce Website. All rights reserved.</p>
     </footer>
@@ -149,17 +151,20 @@
         <div class="cart-item">
           <h5>${product.name}</h5>
           <p>${product.price} x 2</p>
+          <input type="hidden" name="id" value="${product.id}"/>
+          <input type="hidden" name="name" value="${product.name}"/>
+          <input type="hidden" name="price" value="${product.price}"/>
          <button class="btn btn-secondary increase-quantity"
-         data-id="1">
+         data-id="${product.id}">
           
           +
          </button>
          <button class="btn btn-secondary decrease-quantity" 
-         data-id="1">
+         data-id="${product.id}">
           -
          </button>
          <button class="btn btn-danger remove-from-cart" 
-         data-id="1">
+         data-id="${product.id}">
         Remove
         </button>
          </div>
@@ -180,6 +185,12 @@
           );
           cart.splice(productIndex, 1);
           renderCart();
+        }
+        let btn = document.getElementById("checkout-button");
+        btn.addEventListener('click', dispayOnCart)
+        function dispayOnCart(){
+          
+
         }
       });
     </script>
