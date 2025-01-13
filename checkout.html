@@ -45,6 +45,8 @@
       <div id="cart-summary">
         <!-- Cart summary will be dynamically inserted here -->
       </div>
+      <h4>tax(15%): </h4>
+      <h4>total:  </h4>
       <form id="checkout-form">
         <h2>Login</h2>
         <div class="form-group">
@@ -177,24 +179,20 @@
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const query = new URLSearchParams(window.location.search);
-        console.log(Array.from(query.entries()));
+       console.log(Array.from(query.entries()));
+       const cart = Array.from(query.entries());
+       function renderCart(){
+        const cartList = document.getElementById('cart-summary');
+        let cartItem = '';
+        for(let [key, value] of cart){
+          console.log(key, value);
+          cartItem += `<p> ${key} ${value} </p>`;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
+        }
+        cartList.innerHTML = cartItem;
+        cartList.innerHTML = `<p>Total: ${} </p>`
+       }
+renderCart();
       });
 
      
