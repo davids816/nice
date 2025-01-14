@@ -45,8 +45,6 @@
       <div id="cart-summary">
         <!-- Cart summary will be dynamically inserted here -->
       </div>
-      <h4>tax(15%): </h4>
-      <h4>total:  </h4>
       <form id="checkout-form">
         <h2>Login</h2>
         <div class="form-group">
@@ -184,15 +182,36 @@
        function renderCart(){
         const cartList = document.getElementById('cart-summary');
         let cartItem = '';
+        let totalAmount = 0;
         for(let [key, value] of cart){
           console.log(key, value);
           cartItem += `<p> ${key} ${value} </p>`;
+         
+          const amount = parseFloat(value);
+          if(!isNaN(amount)){
+            totalAmount += amount
+          } else {
+            console.warn(`invalid value for ${key}: ${value}`);
+          }
+          
+          }
+        cartList.innerHTML = cartItem
+       
+        cartList.innerHTML += `<p><strong>Total Amount: ${totalAmount.toFixed(2)}</strong></p>`;
 
-        }
-        cartList.innerHTML = cartItem;
-        cartList.innerHTML = `<p>Total: ${} </p>`
+
+
+        const taxRate = 0.15; // 15% tax
+  const taxAmount = totalAmount * taxRate;
+  const totalWithTax = totalAmount + taxAmount;
+
+  cartList.innerHTML = cartItem;
+  cartList.innerHTML += `<p><strong>Subtotal: ${totalAmount.toFixed(2)}</strong></p>`;
+  cartList.innerHTML += `<p><strong>Tax (15%): ${taxAmount.toFixed(2)}</strong></p>`;
+  cartList.innerHTML += `<p><strong>Total Amount: ${totalWithTax.toFixed(2)}</strong></p>`;
+
        }
-renderCart();
+      renderCart();
       });
 
      
