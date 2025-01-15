@@ -45,7 +45,7 @@
       <div id="cart-summary">
         <!-- Cart summary will be dynamically inserted here -->
       </div>
-      <form id="checkout-form">
+      <form id="checkout-form" action="confirmation.html" method="get">
         <h2>Login</h2>
         <div class="form-group">
           <label for="email"
@@ -176,43 +176,50 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const query = new URLSearchParams(window.location.search);
-       console.log(Array.from(query.entries()));
-       const cart = Array.from(query.entries());
-       function renderCart(){
-        const cartList = document.getElementById('cart-summary');
-        let cartItem = '';
-        let totalAmount = 0;
-        for(let [key, value] of cart){
-          console.log(key, value);
-          cartItem += `<p> ${key} ${value} </p>`;
-         
-          const amount = parseFloat(value);
-          if(!isNaN(amount)){
-            totalAmount += amount
-          } else {
-            console.warn(`invalid value for ${key}: ${value}`);
-          }
-          
-          }
-        cartList.innerHTML = cartItem
-       
-        cartList.innerHTML += `<p><strong>Total Amount: ${totalAmount.toFixed(2)}</strong></p>`;
-
-
-
-        const taxRate = 0.15; // 15% tax
-  const taxAmount = totalAmount * taxRate;
-  const totalWithTax = totalAmount + taxAmount;
-
-  cartList.innerHTML = cartItem;
-  cartList.innerHTML += `<p><strong>Subtotal: ${totalAmount.toFixed(2)}</strong></p>`;
-  cartList.innerHTML += `<p><strong>Tax (15%): ${taxAmount.toFixed(2)}</strong></p>`;
-  cartList.innerHTML += `<p><strong>Total Amount: ${totalWithTax.toFixed(2)}</strong></p>`;
+        const urlParams = new URLSearchParams(window.location.search);
+       const cartSummary = document.getElementById('cart-summary')
+       const ids = urlParams.getAll('id');
+       const names = urlParams.getAll('name');
+       const prices = urlParams.getAll('price');
+       const cartItems = [];
+       let cartItem = '';
+       let subtotal = 0;
+       for(let i = 0; i < ids.length; i++){
+        cartItem +=
+        `
+        <div class="cart-item">
+          <h5>${names[i]}</h5>
+          <p>$${parseFloat(prices[i]).toFixed(2)}</p>
+            <input type="hidden" name="id" value="${ids[i]}" />
+            <input type="hidden" name="name" value="${names[i]}" />
+           <input type="hidden" name="price" value="${prices[i]}" />
+           </div>
+        `;
 
        }
-      renderCart();
-      });
+       
+       const taxRate = 0.15;
+const tax = subtotal * taxRate
+const total = subtotal + tax;
+
+
+     cartSummary.innerHTML = cartItem;
+
+     cartSummary.innerHTML += 
+     `
+     <div class="cart-summary">
+      <p>Subtotal: ${subtotal.toFixed(2)}</p>
+      <p>Tax: ${tax.toFixed(2)}</p>
+      <p>Total: ${total.toFixed(2)}</p>
+     </div>
+     
+     `;
+
+     
+
+
+
+       });
 
      
     </script>
