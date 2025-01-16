@@ -80,6 +80,7 @@
             type="text"
             class="form-control"
             id="address"
+            name="address"
             placeholder="Enter your address"
             required
           />
@@ -90,6 +91,7 @@
             type="text"
             class="form-control"
             id="apartment"
+            name="apartment"
             placeholder="Enter your apartment number (optional)"
           />
         </div>
@@ -99,6 +101,7 @@
             type="text"
             class="form-control"
             id="city"
+            name="city"
             placeholder="Enter your city"
             required
           />
@@ -165,6 +168,7 @@
             type="text"
             class="form-control"
             id="zip"
+            name="zip"
             placeholder="Enter your zip code"
             required
           />
@@ -215,10 +219,29 @@ const total = subtotal + tax;
      
      `;
 
+     document
+     .querySelector('#checkout-form')
+     .addEventListener('submit', submitCart);
+
+     function submitCart(event){
+      event.preventDefault();
+      console.log('submitted');
+      fetch('users.json')
+      .then(response => response.json())
+      .then(data => {
+      const email = document.getElementById('email').value;
+      console.log(email);
+      const exists = data.some( user => user.email == email);
+      console.log(exists);
+       if(exists){
+        form.submit();
+       } else{
+        const errorMessage = document.getElementById('error-message');
+        errorMessage.innerHTML = 'user does not exist';
+       }
+        });
      
-
-
-
+      }
        });
 
      
