@@ -189,6 +189,8 @@
        let cartItem = '';
        let subtotal = 0;
        for(let i = 0; i < ids.length; i++){
+       const price = parseFloat(prices[i])
+       subtotal += price
         cartItem +=
         `
         <div class="cart-item">
@@ -203,8 +205,8 @@
        }
        
        const taxRate = 0.15;
-        const tax = subtotal * taxRate
-const total = subtotal + tax;
+       const tax = subtotal * taxRate
+       const total = subtotal + tax;
 
 
      cartSummary.innerHTML = cartItem;
