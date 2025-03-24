@@ -1,5 +1,5 @@
 // TODO: When the DOM loads, set up event listeners for the registration form
-let registryForm = document.getElementById("registration") \;
+let registryForm = document.getElementById("registration") 
 registryForm.addEventListener("click", submit)
 // TODO: Create a function to handle the registration form submission
 // 1. Prevent the default form submission
@@ -11,6 +11,7 @@ registryForm.addEventListener("click", submit)
 //    - If error, display appropriate error message to user
 function submit(){
     event.preventDefault();
+const data = document.getElementById("registration")
 
 }
 // TODO: Create helper functions for form validation
