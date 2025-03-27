@@ -1,3 +1,5 @@
+const { response } = require("express");
+
 // TODO: When the DOM loads, set up event listeners for the registration form
 let registryForm = document.getElementById("registration") 
 registryForm.addEventListener("click", submit)
@@ -12,6 +14,22 @@ registryForm.addEventListener("click", submit)
 function submit(){
     event.preventDefault();
 const data = document.getElementById("registration")
+const email = document.getElementById("email")
+const password = document.getElementById("password")
+let user = "";
+fetch("users.json")
+.then((response) => response.json())
+.then((data) => {
+user = data.users;
+console.log(data)
+})
 
-}
+
+
+ }
+
+
 // TODO: Create helper functions for form validation
+function help(){
+    
+}
