@@ -13,23 +13,21 @@ registryForm.addEventListener("click", submit)
 //    - If error, display appropriate error message to user
 function submit(){
     event.preventDefault();
-const data = document.getElementById("registration")
+// const data = document.getElementById("registration")
 const email = document.getElementById("email")
-const password = document.getElementById("password")
-let user = "";
-fetch("users.json")
-.then((response) => response.json())
-.then((data) => {
-user = data.users;
-console.log(data)
-})
-
-
-
+const data = fs.readFileSync('users.json'); // read the entire content of a file synchronously
+const jsonData = JSON.parse(data); // convert json string into javascript string
+if (email){
+    jsonData.users.push({
+        name: 'James',
+        email: 'james@example.com',
+      });
+}
+const jsonString = JSON.stringify(jsonData); // convert javsascript string back into json string
  }
 
 
 // TODO: Create helper functions for form validation
 function help(){
-    
+    submit();
 }
